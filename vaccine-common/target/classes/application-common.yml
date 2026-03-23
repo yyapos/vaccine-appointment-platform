@@ -1,0 +1,48 @@
+# 公共配置文件
+# 各服务通过 spring.config.import 引入此配置文件
+
+spring:
+  # 数据源公共配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vaccine_platform?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+  # Redis公共配置
+  data:
+    redis:
+      host: 10.180.229.200
+      port: 6379
+      timeout: 5000
+
+# MyBatis Plus公共配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      insert-strategy: not_null  # 插入时忽略null值，让数据库DEFAULT生效
+      update-strategy: not_null  # 更新时忽略null值，让数据库DEFAULT生效
+
+# JWT公共配置
+jwt:
+  secret: vaccine-auth-secret-key-2024-must-be-at-least-256-bits-long-for-hmac-sha256-algorithm
+  expiration: 86400000

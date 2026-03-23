@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="vaccine-child-service" />
+        <module name="vaccine-auth-service" />
+        <module name="vaccine-appointment-service" />
+        <module name="vaccine-forum-service" />
+        <module name="vaccine-notify-service" />
+        <module name="vaccine-gateway" />
+        <module name="vaccine-common" />
+        <module name="vaccine-user-service" />
+        <module name="vaccine-vaccine-service" />
+        <module name="vaccine-parent-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="vaccine-site-service" target="17" />
+      <module name="vaccine-statistics-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="vaccine-appointment-service" options="-parameters" />
+      <module name="vaccine-auth-service" options="-parameters" />
+      <module name="vaccine-child-service" options="-parameters" />
+      <module name="vaccine-common" options="-parameters" />
+      <module name="vaccine-forum-service" options="-parameters" />
+      <module name="vaccine-gateway" options="-parameters" />
+      <module name="vaccine-notify-service" options="-parameters" />
+      <module name="vaccine-parent-service" options="-parameters" />
+      <module name="vaccine-site-service" options="-parameters" />
+      <module name="vaccine-statistics-service" options="-parameters" />
+      <module name="vaccine-user-service" options="-parameters" />
+      <module name="vaccine-vaccine-service" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,159 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: vaccine-gateway
+
+  cloud:
+    gateway:
+      # 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+
+      # 路由配置
+      routes:
+        # 后台管理系统认证路由
+        - id: vaccine-admin-auth
+          uri: lb://vaccine-auth-service
+          predicates:
+            - Path=/api/admin/**
+          filters:
+            - StripPrefix=1
+
+        # 家长小程序认证路由
+        - id: vaccine-app-auth
+          uri: lb://vaccine-parent-service
+          predicates:
+            - Path=/api/app/**
+          filters:
+            - StripPrefix=1
+
+        # 认证授权服务路由
+        - id: vaccine-auth-service
+          uri: lb://vaccine-auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+
+        # 用户管理服务路由
+        - id: vaccine-user-service
+          uri: lb://vaccine-user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=1
+
+        # 系统设置服务路由
+        - id: vaccine-settings-service
+          uri: lb://vaccine-user-service
+          predicates:
+            - Path=/api/settings/**
+          filters:
+            - StripPrefix=1
+
+        # 儿童管理服务路由
+        - id: vaccine-child-service
+          uri: lb://vaccine-child-service
+          predicates:
+            - Path=/api/child/**
+          filters:
+            - StripPrefix=1
+
+        # 疫苗管理服务路由
+        - id: vaccine-vaccine-service
+          uri: lb://vaccine-vaccine-service
+          predicates:
+            - Path=/api/vaccine/**
+          filters:
+            - StripPrefix=1
+
+        # 疫苗批次服务路由
+        - id: vaccine-vaccine-batch-service
+          uri: lb://vaccine-vaccine-service
+          predicates:
+            - Path=/api/vaccine-batch/**
+          filters:
+            - StripPrefix=1
+
+        # 预约管理服务路由
+        - id: vaccine-appointment-service
+          uri: lb://vaccine-appointment-service
+          predicates:
+            - Path=/api/appointment/**
+          filters:
+            - StripPrefix=1
+
+        # 接种记录服务路由
+        - id: vaccine-vaccination-record-service
+          uri: lb://vaccine-appointment-service
+          predicates:
+            - Path=/api/vaccination-record/**
+          filters:
+            - StripPrefix=1
+
+        # 接种计划服务路由
+        - id: vaccine-vaccination-plan-service
+          uri: lb://vaccine-appointment-service
+          predicates:
+            - Path=/api/vaccination-plan/**
+          filters:
+            - StripPrefix=1
+
+        # 通知提醒服务路由
+        - id: vaccine-notify-service
+          uri: lb://vaccine-notify-service
+          predicates:
+            - Path=/api/notify/**
+          filters:
+            - StripPrefix=1
+
+        # 提醒服务路由
+        - id: vaccine-reminder-service
+          uri: lb://vaccine-notify-service
+          predicates:
+            - Path=/api/reminder/**
+          filters:
+            - StripPrefix=1
+
+
+        # 论坛服务路由
+        - id: vaccine-forum-service
+          uri: lb://vaccine-forum-service
+          predicates:
+            - Path=/api/forum/**
+          filters:
+            - StripPrefix=1
+
+        # 家长服务路由
+        - id: vaccine-parent-service
+          uri: lb://vaccine-parent-service
+          predicates:
+            - Path=/api/parent/**
+          filters:
+            - StripPrefix=1
+
+
+
+# 日志配置
+logging:
+  level:
+    com.vaccine.gateway: debug
+    org.springframework.cloud.gateway: debug
+
+# JWT配置（用于网关验证token）
+jwt:
+  secret: vaccine-auth-secret-key-2024-must-be-at-least-256-bits-long-for-hmac-sha256-algorithm
+  expiration: 86400000

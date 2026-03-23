@@ -1,0 +1,12 @@
+com\vaccine\vaccine\service\impl\VaccineBatchServiceImpl.class
+com\vaccine\vaccine\controller\VaccineBatchController.class
+com\vaccine\vaccine\mapper\VaccineBatchMapper.class
+com\vaccine\vaccine\entity\Vaccine.class
+com\vaccine\vaccine\service\VaccineService.class
+com\vaccine\vaccine\service\VaccineBatchService.class
+com\vaccine\vaccine\entity\rules\VaccineRule.class
+com\vaccine\vaccine\controller\VaccineController.class
+com\vaccine\vaccine\service\impl\VaccineServiceImpl.class
+com\vaccine\vaccine\VaccineVaccineServiceApplication.class
+com\vaccine\vaccine\entity\VaccineBatch.class
+com\vaccine\vaccine\mapper\VaccineMapper.class

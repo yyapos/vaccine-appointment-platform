@@ -1,0 +1,29 @@
+# 疫苗服务配置
+# 通过 spring.config.import 引入 common 模块的公共配置
+
+server:
+  port: 8084
+
+spring:
+  application:
+    name: vaccine-vaccine-service
+
+  # 引入公共配置
+  config:
+    import: optional:classpath:application-common.yml
+
+  # 只配置服务特定的Redis数据库
+  data:
+    redis:
+      database: 3
+
+
+
+# MyBatis Plus - 只配置服务特定的包路径
+mybatis-plus:
+  type-aliases-package: com.vaccine.vaccine.entity
+
+# 日志配置
+logging:
+  level:
+    com.vaccine.vaccine: debug

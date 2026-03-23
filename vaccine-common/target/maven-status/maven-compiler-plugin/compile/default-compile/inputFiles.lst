@@ -1,0 +1,15 @@
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\config\MybatisPlusConfig.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\mapper\AppointmentSettingsMapper.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\entity\AppointmentSettings.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\result\Result.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\constant\RoleConstant.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\annotation\RequireRole.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\entity\BaseEntity.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\mapper\BasicSettingsMapper.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\annotation\RequireAdmin.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\mapper\ReminderSettingsMapper.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\constant\AppointmentStatus.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\constant\Constant.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\util\JwtUtil.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\entity\ReminderSettings.java
+C:\Users\29278\Desktop\防控平台毕业设计\vaccine-common\src\main\java\com\vaccine\common\entity\BasicSettings.java

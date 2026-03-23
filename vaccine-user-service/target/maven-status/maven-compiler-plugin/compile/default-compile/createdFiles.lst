@@ -1,0 +1,13 @@
+com\vaccine\user\controller\SettingsController.class
+com\vaccine\user\mapper\UserMapper.class
+com\vaccine\user\service\BasicSettingsService.class
+com\vaccine\user\service\impl\UserServiceImpl.class
+com\vaccine\user\service\impl\ReminderSettingsServiceImpl.class
+com\vaccine\user\service\AppointmentSettingsService.class
+com\vaccine\user\VaccineUserServiceApplication.class
+com\vaccine\user\service\ReminderSettingsService.class
+com\vaccine\user\service\UserService.class
+com\vaccine\user\controller\UserController.class
+com\vaccine\user\entity\User.class
+com\vaccine\user\service\impl\AppointmentSettingsServiceImpl.class
+com\vaccine\user\service\impl\BasicSettingsServiceImpl.class

@@ -1,0 +1,2 @@
+com\vaccine\gateway\VaccineGatewayApplication.class
+com\vaccine\gateway\filter\GlobalLogFilter.class

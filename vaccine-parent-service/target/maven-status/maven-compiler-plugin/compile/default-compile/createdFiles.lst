@@ -1,0 +1,7 @@
+com\vaccine\parent\entity\Parent.class
+com\vaccine\parent\util\WeChatUtil.class
+com\vaccine\parent\service\ParentService.class
+com\vaccine\parent\controller\ParentController.class
+com\vaccine\parent\mapper\ParentMapper.class
+com\vaccine\parent\VaccineParentServiceApplication.class
+com\vaccine\parent\service\impl\ParentServiceImpl.class

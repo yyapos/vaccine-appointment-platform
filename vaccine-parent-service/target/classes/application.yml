@@ -1,0 +1,34 @@
+# 家长服务配置
+# 通过 spring.config.import 引入 common 模块的公共配置
+
+server:
+  port: 8090
+
+spring:
+  application:
+    name: vaccine-parent-service
+
+  # 引入公共配置
+  config:
+    import: optional:classpath:application-common.yml
+
+  # 只配置服务特定的Redis数据库
+  data:
+    redis:
+      database: 6
+
+
+
+# MyBatis Plus - 只配置服务特定的包路径
+mybatis-plus:
+  type-aliases-package: com.vaccine.parent.entity
+
+# 微信小程序配置
+wechat:
+  appid: wx9ea8dbe3e76bca29  # 请替换为你的微信小程序AppID
+  secret: aa28393cc512ff29469d66a5d23ee65e  # 请替换为你的微信小程序AppSecret
+
+# 日志配置
+logging:
+  level:
+    com.vaccine.parent: debug

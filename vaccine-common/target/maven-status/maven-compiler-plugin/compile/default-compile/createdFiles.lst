@@ -1,0 +1,15 @@
+com\vaccine\common\mapper\AppointmentSettingsMapper.class
+com\vaccine\common\mapper\BasicSettingsMapper.class
+com\vaccine\common\util\JwtUtil.class
+com\vaccine\common\entity\AppointmentSettings.class
+com\vaccine\common\mapper\ReminderSettingsMapper.class
+com\vaccine\common\entity\BasicSettings.class
+com\vaccine\common\annotation\RequireRole.class
+com\vaccine\common\entity\ReminderSettings.class
+com\vaccine\common\result\Result.class
+com\vaccine\common\constant\RoleConstant.class
+com\vaccine\common\config\MybatisPlusConfig.class
+com\vaccine\common\constant\AppointmentStatus.class
+com\vaccine\common\constant\Constant.class
+com\vaccine\common\entity\BaseEntity.class
+com\vaccine\common\annotation\RequireAdmin.class

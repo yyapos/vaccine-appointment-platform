@@ -1,0 +1,25 @@
+# 通知服务配置
+# 通过 spring.config.import 引入 common 模块的公共配置
+
+server:
+  port: 8086
+
+spring:
+  application:
+    name: vaccine-notify-service
+
+  # 引入公共配置
+  config:
+    import: optional:classpath:application-common.yml
+
+  # 只配置服务特定的Redis数据库
+  data:
+    redis:
+      database: 5
+
+
+
+# 日志配置
+logging:
+  level:
+    com.vaccine.notify: debug

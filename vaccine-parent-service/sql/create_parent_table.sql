@@ -1,0 +1,28 @@
+-- 家长表
+CREATE TABLE IF NOT EXISTS `parent` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `openid` varchar(100) NOT NULL COMMENT '微信openid',
+  `unionid` varchar(100) DEFAULT NULL COMMENT '微信unionid',
+  `nickname` varchar(100) DEFAULT NULL COMMENT '微信昵称',
+  `avatar` varchar(500) DEFAULT NULL COMMENT '微信头像',
+  `gender` tinyint DEFAULT '0' COMMENT '性别 0-未知 1-男 2-女',
+  `country` varchar(50) DEFAULT NULL COMMENT '国家',
+  `province` varchar(50) DEFAULT NULL COMMENT '省份',
+  `city` varchar(50) DEFAULT NULL COMMENT '城市',
+  `language` varchar(20) DEFAULT NULL COMMENT '语言',
+  `phone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `email` varchar(100) DEFAULT NULL COMMENT '邮箱',
+  `status` tinyint NOT NULL DEFAULT '1' COMMENT '状态 0-禁用 1-启用',
+  `last_login_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `last_login_ip` varchar(50) DEFAULT NULL COMMENT '最后登录IP',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人',
+  `deleted` tinyint NOT NULL DEFAULT '0' COMMENT '删除标记 0-未删除 1-已删除',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_openid` (`openid`),
+  KEY `idx_unionid` (`unionid`),
+  KEY `idx_phone` (`phone`),
+  KEY `idx_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='家长信息表';

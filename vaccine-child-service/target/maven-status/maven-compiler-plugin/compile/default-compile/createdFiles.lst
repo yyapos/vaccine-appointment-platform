@@ -1,0 +1,10 @@
+com\vaccine\child\entity\health\ChildGrowthRecord.class
+com\vaccine\child\controller\ChildController.class
+com\vaccine\child\entity\health\VaccinationContraindication.class
+com\vaccine\child\mapper\ChildMapper.class
+com\vaccine\child\service\ChildService.class
+com\vaccine\child\VaccineChildServiceApplication.class
+com\vaccine\child\entity\health\ChildHealthRecord.class
+com\vaccine\child\entity\Child.class
+com\vaccine\child\service\impl\ChildServiceImpl.class
+com\vaccine\child\controller\ChildHealthController.class

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: vaccine-forum-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.180.229.200:8848
+        namespace: dev
+        group: DEFAULT_GROUP
