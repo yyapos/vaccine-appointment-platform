@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 20/03/2026 17:35:51
+ Date: 23/03/2026 16:48:30
 */
 
 SET NAMES utf8mb4;
@@ -130,7 +130,7 @@ CREATE TABLE `child`  (
   INDEX `idx_parent_id`(`parent_id` ASC) USING BTREE,
   INDEX `idx_birth_date`(`birth_date` ASC) USING BTREE,
   INDEX `idx_id_card`(`id_card` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '儿童表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '儿童表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of child
@@ -140,7 +140,8 @@ INSERT INTO `child` VALUES (4, 4, '林子康', '139274832294491351', 1, '2022-03
 INSERT INTO `child` VALUES (5, 4, '小小娴', NULL, 2, '2023-03-19', NULL, 0, NULL, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, 1);
 INSERT INTO `child` VALUES (6, 4, '肖子娴', NULL, 2, '2025-03-19', NULL, 0, NULL, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `child` VALUES (7, 4, '测试', NULL, 1, '2024-01-01', NULL, 0, NULL, 1, NULL, NULL, NULL, 1, '2026-03-19 19:44:48', '2026-03-20 09:52:53', NULL, NULL, 1);
-INSERT INTO `child` VALUES (8, 4, '测试', NULL, 1, '2024-03-20', NULL, 0, NULL, 1, NULL, NULL, NULL, 1, '2026-03-20 09:53:08', '2026-03-20 09:53:08', NULL, NULL, 0);
+INSERT INTO `child` VALUES (8, 4, '测试', NULL, 1, '2024-03-20', NULL, 0, NULL, 1, NULL, NULL, NULL, 1, '2026-03-20 09:53:08', '2026-03-22 15:06:40', NULL, NULL, 1);
+INSERT INTO `child` VALUES (9, 4, '测试', NULL, 1, '2024-03-22', NULL, 0, NULL, 1, NULL, NULL, NULL, 1, '2026-03-22 15:06:56', '2026-03-22 15:06:56', NULL, NULL, 0);
 
 -- ----------------------------
 -- Table structure for forum_announcement
@@ -195,7 +196,7 @@ CREATE TABLE `forum_comment`  (
   INDEX `idx_post_id`(`post_id` ASC) USING BTREE,
   INDEX `idx_user_id`(`user_id` ASC) USING BTREE,
   INDEX `idx_parent_id`(`parent_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '论坛评论表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '论坛评论表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of forum_comment
@@ -205,6 +206,7 @@ INSERT INTO `forum_comment` VALUES (2, 1, 1, 1, 1, 2, '谢谢！太需要了', 0
 INSERT INTO `forum_comment` VALUES (3, 3, 4, 1, 0, NULL, '测试', 0, 1, '2026-03-19 16:21:54', '2026-03-19 16:21:54', 0);
 INSERT INTO `forum_comment` VALUES (4, 3, 4, 1, 0, NULL, '测试', 0, 1, '2026-03-19 17:23:39', '2026-03-19 17:23:39', 0);
 INSERT INTO `forum_comment` VALUES (5, 5, 4, 1, 0, NULL, 'nihao', 0, 1, '2026-03-19 17:54:28', '2026-03-19 17:54:28', 0);
+INSERT INTO `forum_comment` VALUES (6, 6, 4, 1, 0, NULL, '你好', 0, 1, '2026-03-22 15:08:03', '2026-03-22 15:08:03', 0);
 
 -- ----------------------------
 -- Table structure for forum_like
@@ -219,7 +221,7 @@ CREATE TABLE `forum_like`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uk_user_target`(`user_id` ASC, `target_type` ASC, `target_id` ASC) USING BTREE,
   INDEX `idx_target`(`target_type` ASC, `target_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '点赞记录表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '点赞记录表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of forum_like
@@ -227,6 +229,7 @@ CREATE TABLE `forum_like`  (
 INSERT INTO `forum_like` VALUES (1, 4, 'post', 1, '2026-03-19 17:03:17');
 INSERT INTO `forum_like` VALUES (6, 4, 'post', 3, '2026-03-19 17:23:00');
 INSERT INTO `forum_like` VALUES (7, 4, 'post', 5, '2026-03-19 17:54:23');
+INSERT INTO `forum_like` VALUES (9, 4, 'post', 6, '2026-03-22 15:07:57');
 
 -- ----------------------------
 -- Table structure for forum_post
@@ -254,7 +257,7 @@ CREATE TABLE `forum_post`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_user_id`(`user_id` ASC) USING BTREE,
   INDEX `idx_create_time`(`create_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '论坛帖子表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '论坛帖子表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of forum_post
@@ -262,8 +265,9 @@ CREATE TABLE `forum_post`  (
 INSERT INTO `forum_post` VALUES (1, 1, 1, '新生儿疫苗接种时间表', '我家宝宝刚出生，想了解一下疫苗接种的时间安排，有没有家长分享一下经验？', NULL, '新生儿,时间表', 121, 6, 3, 0, 0, 1, '2026-03-16 19:43:57', '2026-03-19 17:55:44', NULL, NULL, 1);
 INSERT INTO `forum_post` VALUES (2, 2, 1, '宝宝打疫苗后发烧正常吗？', '我家宝宝接种乙肝疫苗后有点低烧，大约37.5度，请问这种情况正常吗？需要去医院吗？', NULL, '发烧,不良反应', 60, 2, 1, 0, 0, 1, '2026-03-16 19:43:57', '2026-03-19 17:55:45', NULL, NULL, 1);
 INSERT INTO `forum_post` VALUES (3, 4, 1, '测试', '测试', NULL, '测试', 59, 1, 2, 0, 0, 1, '2026-03-19 16:21:40', '2026-03-19 16:21:40', NULL, NULL, 0);
-INSERT INTO `forum_post` VALUES (4, 4, 1, '测试2', '测试2', NULL, '测试2', 0, 0, 0, 0, 0, 1, '2026-03-19 17:38:41', '2026-03-19 17:38:41', NULL, NULL, 0);
-INSERT INTO `forum_post` VALUES (5, 4, 1, '测试3', '测试3', NULL, '测试3', 6, 1, 1, 0, 0, 1, '2026-03-19 17:43:08', '2026-03-19 17:43:08', NULL, NULL, 0);
+INSERT INTO `forum_post` VALUES (4, 4, 1, '测试2', '测试2', NULL, '测试2', 1, 0, 0, 0, 0, 1, '2026-03-19 17:38:41', '2026-03-19 17:38:41', NULL, NULL, 0);
+INSERT INTO `forum_post` VALUES (5, 4, 1, '测试3', '测试3', NULL, '测试3', 9, 1, 1, 0, 0, 1, '2026-03-19 17:43:08', '2026-03-19 17:43:08', NULL, NULL, 0);
+INSERT INTO `forum_post` VALUES (6, 4, 1, '测试', '测试', NULL, '', 1, 1, 1, 0, 0, 1, '2026-03-22 15:07:48', '2026-03-22 15:07:48', NULL, NULL, 0);
 
 -- ----------------------------
 -- Table structure for parent
@@ -296,7 +300,7 @@ CREATE TABLE `parent`  (
 -- ----------------------------
 -- Records of parent
 -- ----------------------------
-INSERT INTO `parent` VALUES (4, 'o4aeC13cgQzhDmxallEoEljQzx7s', NULL, 'PGCHEF', 'http://tmp/vhhmcuN13JI821c9774d516cb6af36b1c80bd6d6e658.jpeg', 1, '北京市', '15512725316', NULL, 1, '2026-03-18 22:08:26', NULL, '2026-03-18 21:50:55', '2026-03-18 21:50:55', NULL, NULL, 0);
+INSERT INTO `parent` VALUES (4, 'o4aeC13cgQzhDmxallEoEljQzx7s', NULL, 'PGCHEF', 'http://tmp/SPBUWHX0RSZEee8fa6ba4c2075a866f6a2f0b203c4c8.jpeg', 1, '北京市', '15512725316', NULL, 1, '2026-03-18 22:08:26', NULL, '2026-03-18 21:50:55', '2026-03-18 21:50:55', NULL, NULL, 0);
 
 -- ----------------------------
 -- Table structure for reminder
