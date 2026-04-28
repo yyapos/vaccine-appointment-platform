@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 10.180.229.200:8848
+        server-addr: localhost:8848
         namespace: dev
         group: DEFAULT_GROUP
         username: nacos

@@ -17,11 +17,11 @@ spring:
     redis:
       database: 0
 
-  # Nacos配置
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
+#  # Nacos配置
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
 
 # MyBatis Plus - 只配置服务特定的包路径
 mybatis-plus:

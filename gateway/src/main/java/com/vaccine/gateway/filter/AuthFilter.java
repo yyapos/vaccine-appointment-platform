@@ -33,7 +33,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         String path = request.getPath().value();
 
         // 登录接口不需要验证token
-        if (path.startsWith("/api/auth/")) {
+        if (path.contains("/api/admin/login")) {
             return chain.filter(exchange);
         }
 

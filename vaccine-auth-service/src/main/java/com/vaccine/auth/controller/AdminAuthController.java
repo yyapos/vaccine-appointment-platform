@@ -47,11 +47,11 @@ public class AdminAuthController {
             // 获取用户信息
             User loginUser = authService.getUserByUsername(username);
 
-            // 验证角色：只有管理员可以登录后台系统
-            if (!RoleConstant.ADMIN.equals(loginUser.getRole())) {
-                System.out.println("权限不足，不是管理员角色");
-                return Result.error("权限不足，只有管理员可以登录后台系统");
-            }
+//            // 验证角色：只有管理员可以登录后台系统
+//            if (!RoleConstant.ADMIN.equals(loginUser.getRole())) {
+//                System.out.println("权限不足，不是管理员角色");
+//                return Result.error("权限不足，只有管理员可以登录后台系统");
+//            }
 
             // 检查用户状态
             if (loginUser.getStatus() == null || loginUser.getStatus() == 0) {
@@ -61,8 +61,11 @@ public class AdminAuthController {
 
             System.out.println("管理员登录成功: " + loginUser.getRealName());
 
+//            // 生成 JWT token（后台系统可以使用更长的有效期）
+//            String token = jwtUtil.generateToken(loginUser.getUsername(), loginUser.getId(), loginUser.getRole());
+//            System.out.println("Token生成成功");
             // 生成 JWT token（后台系统可以使用更长的有效期）
-            String token = jwtUtil.generateToken(loginUser.getUsername(), loginUser.getId(), loginUser.getRole());
+            String token = jwtUtil.generateToken(loginUser.getUsername(), loginUser.getId(),null);
             System.out.println("Token生成成功");
 
             // 保存 token 到 Redis
@@ -79,7 +82,7 @@ public class AdminAuthController {
             userInfo.put("realName", loginUser.getRealName());
             userInfo.put("phone", loginUser.getPhone());
             userInfo.put("email", loginUser.getEmail());
-            userInfo.put("role", loginUser.getRole());
+//            userInfo.put("role", loginUser.getRole());
             userInfo.put("avatar", loginUser.getAvatar());
             data.put("user", userInfo);
 

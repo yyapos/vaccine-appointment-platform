@@ -104,13 +104,13 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
         // 校验当天的预约数量是否超过最大预约数
         long todayAppointmentCount = this.count(new LambdaQueryWrapper<Appointment>()
                 .eq(Appointment::getAppointmentDate, appointmentDate)
-                .ne(Appointment::getStatus, 2)); // 不包括已拒绝的预约
+                .notIn(Appointment::getStatus, 2, 4)); // 不包括已拒绝、已取消的预约
 
         if (todayAppointmentCount >= appointmentSettings.getMaxDailyAppointments()) {
             throw new RuntimeException("当天预约数量已达上限，请选择其他日期");
         }
 
-        // 简化：预约状态只有3个：待审核(0) -> 已通过(1) / 已拒绝(2)
+        // 预约状态：待审核(0)、已通过(1)、已拒绝(2)、已完成(3)、已取消(4)
         appointment.setStatus(0); // 待审核
         
         // 如果前端没有传递doseNumber，默认为1
@@ -175,15 +175,26 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
 
     @Override
-    public boolean cancelAppointment(Long id, String reason) {
+    public boolean cancelAppointment(Long id, Long parentId, String reason) {
         Appointment appointment = this.getById(id);
         if (appointment == null) {
             throw new RuntimeException("预约不存在");
         }
+        if (parentId == null) {
+            throw new RuntimeException("无权限取消该预约");
+        }
+        com.vaccine.common.result.Result<com.vaccine.child.entity.Child> childResult = childClient.getChildById(appointment.getChildId());
+        if (childResult == null || childResult.getCode() != 200 || childResult.getData() == null) {
+            throw new RuntimeException("预约关联的儿童不存在");
+        }
+        Long appointmentParentId = childResult.getData().getParentId();
+        if (appointmentParentId == null || !appointmentParentId.equals(parentId)) {
+            throw new RuntimeException("无权限取消该预约");
+        }
         if (appointment.getStatus() != 0 && appointment.getStatus() != 1) {
             throw new RuntimeException("只能取消待审核或已通过的预约");
         }
-        appointment.setStatus(2); // 已取消（改为状态2）
+        appointment.setStatus(4); // 已取消
         appointment.setCancelReason(reason);
         return this.updateById(appointment);
     }

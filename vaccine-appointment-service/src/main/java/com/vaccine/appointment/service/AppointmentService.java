@@ -17,7 +17,7 @@ public interface AppointmentService extends IService<Appointment> {
     /**
      * 取消预约
      */
-    boolean cancelAppointment(Long id, String reason);
+    boolean cancelAppointment(Long id, Long parentId, String reason);
 
     /**
      * 审核通过

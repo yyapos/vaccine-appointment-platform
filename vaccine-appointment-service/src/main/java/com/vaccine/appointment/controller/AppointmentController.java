@@ -111,7 +111,7 @@ public class AppointmentController {
         }
         try {
             String reason = request.get("reason");
-            boolean success = appointmentService.cancelAppointment(id, reason);
+            boolean success = appointmentService.cancelAppointment(id, userId, reason);
             return success ? Result.success("取消成功") : Result.error("取消失败");
         } catch (RuntimeException e) {
             return Result.error(e.getMessage());

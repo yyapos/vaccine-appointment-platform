@@ -24,7 +24,7 @@ spring:
   # Redis公共配置
   data:
     redis:
-      host: 10.180.229.200
+      host: localhost
       port: 6379
       timeout: 5000
 

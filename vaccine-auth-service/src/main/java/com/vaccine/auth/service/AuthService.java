@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.vaccine.auth.entity.User;
 import com.vaccine.auth.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthService {
 
     private final UserMapper userMapper;
@@ -45,9 +47,11 @@ public class AuthService {
     public boolean validateUser(String username, String password) {
         User user = getUserByUsername(username);
         if (user == null) {
+            log.info("用户不存在");
             return false;
         }
         if (user.getStatus() != 1) {
+            log.info("账户禁用");
             return false;
         }
         // 明文密码验证
